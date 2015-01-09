@@ -12,3 +12,8 @@ References:
 MATLAB/Octave Code: see /src/m/demo.m for demonstration. You may need to compile the MEX code for Fast Gaussian Transform.
 
 C++ Code: will be available when I feel like doing it.
+
+Results:
+
+![Image of Entropy](http://cs.bath.ac.uk/~hg299/entropy.png)
+![Image of Output](http://cs.bath.ac.uk/~hg299/output.png)
