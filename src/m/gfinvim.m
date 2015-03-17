@@ -67,7 +67,7 @@ if para.demo, plot(E); title('entropy plot'); end % plot entropy
 [~,ma] = min(E); mi = ang(ma); % get minimum entropy
 e_t = [cos(i*mi/180);sin(i*mi/180)]; % projection vector
 e = [-sin(i*mi/180);cos(i*mi/180)]; % illumination vector
-I1D = reshape(mat2gray(X'*e_t),sz); % 1D invariant image
+I1D = reshape(mat2gray(exp(X'*e_t)),sz); % 1D invariant image
 
 if nargout>1
     p_th = e_t*e_t'; % project 2D points onto e_t
