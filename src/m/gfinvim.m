@@ -37,6 +37,11 @@ rho = reshape(log(C),[],3)'; % log chromaticity on a plane
 U = [1/sqrt(2), -1/sqrt(2), 0; 1/sqrt(6), 1/sqrt(6), -2/sqrt(6)]; % eigens
 X = U*rho; % 2D points on a plane orthogonal to [1,1,1]
 
+if para.demo
+    figure('Name','2D Chromaticity Plane');
+    scatter(X(1,:)',X(2,:)');
+end
+
 ang = linspace(0,180,para.nd); % angles to traverse 
 E = zeros(para.nd,1); % entropy
 if para.demo, figure; h = imshow(zeros(sz)); tt = title(''); end
@@ -65,6 +70,7 @@ end
 
 if para.demo, plot(E); title('entropy plot'); end % plot entropy
 [~,ma] = min(E); mi = ang(ma); % get minimum entropy
+fprintf('Angle: %f\n',ma); % output the angle
 e_t = [cos(i*mi/180);sin(i*mi/180)]; % projection vector
 e = [-sin(i*mi/180);cos(i*mi/180)]; % illumination vector
 I1D = reshape(mat2gray(exp(X'*e_t)),sz); % 1D invariant image
