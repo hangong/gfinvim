@@ -71,8 +71,8 @@ end
 if para.demo, plot(E); title('entropy plot'); end % plot entropy
 [~,ma] = min(E); mi = ang(ma); % get minimum entropy
 fprintf('Angle: %f\n',ma); % output the angle
-e_t = [cos(i*mi/180);sin(i*mi/180)]; % projection vector
-e = [-sin(i*mi/180);cos(i*mi/180)]; % illumination vector
+e_t = [cos(mi*pi/180);sin(mi*pi/180)]; % projection vector
+e = [-sin(mi*pi/180);cos(mi*pi/180)]; % illumination vector
 I1D = reshape(mat2gray(exp(X'*e_t)),sz); % 1D invariant image
 
 if nargout>1
